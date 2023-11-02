@@ -1,0 +1,17 @@
+<div>
+  <h2>Check Your Email</h2>
+  <p>
+    Please enter the verification code sent to your email
+    address <%=session[:email] %>.
+  </p>
+  <div>
+    <%= form_with(url: auth_verification_path) do |f| %>
+      <%= f.hidden_field :email, value: @email %>
+      <%= f.text_field :verification_code,
+          placeholder: "Verification Code", maxlength: 6 %>
+      <%= f.button do %>
+        Verify
+      <% end %>
+    <% end %>
+  </div>
+</div>

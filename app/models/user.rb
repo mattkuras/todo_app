@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   before_create :generate_otp_secret
   has_many :access_tokens, dependent: :destroy
+  has_many :todos, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 
@@ -10,6 +11,10 @@ class User < ApplicationRecord
 
   def valid_auth_code?(code)
     totp.verify(code, drift_behind: 300).present?
+  end
+
+  def current_todos
+    todos.where(completed: false)
   end
 
   private

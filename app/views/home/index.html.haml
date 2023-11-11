@@ -10,5 +10,8 @@
     .time.h-1_2.flex.justify-center.h-12.border-2.border-black.h-1_2.items-center
       %h1.text-4xl Time
     .todos.w-full.flex.justify-center.h-12.border-2.border-black.h-1_2.items-center
-      %h1.text-4xl Todos
+      = turbo_frame_tag "todo_list", src: todos_path
 
+
+
+.round-button{class: "w-[50px] h-[50px] bg-[#3498db] rounded-[50%] fixed bottom-[20px] left-[45%] transform-[translateX(-55%)] cursor-[pointer"}

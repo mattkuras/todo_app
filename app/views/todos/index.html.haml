@@ -1,0 +1,5 @@
+= turbo_frame_tag "todo_list" do
+  .todo-list.flex-col.w-full.h-full
+    - @todos.each do |todo|
+      = render :partial "todo_item", locals: { todo: todo }
+
